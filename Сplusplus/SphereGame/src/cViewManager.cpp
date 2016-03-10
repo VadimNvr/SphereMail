@@ -5,7 +5,11 @@
 #define EXT_SET			".settings"
 #define EXT_MAP			".map"
 
+#define PATH_TO_SERVER "../Server/server"
+#define SERVER_PORT "8002"
+
 ViewManager* ViewManager::m_pinstance = NULL;
+Mode ViewManager::mode = SINGLE;
 
 ViewManager::ViewManager() : m_scene(NULL), m_game_won(false)
 {
@@ -84,6 +88,7 @@ void ViewManager::MenuMainFunc()
 	switch (position)
 	{
 	case 0:
+        ViewManager::mode = SINGLE;
 		m_menuChoose->setUp();
 		m_stack.push([this]() { MenuChooseFunc(); });
 		break;
@@ -121,11 +126,40 @@ void ViewManager::MenuMultiFunc()
     
     switch (position) {
         case 0:
+            ViewManager::mode = CLIENT;
+            
+            Client::m_pscene = NULL;
+            Client::connect(8002);
+            m_menuChoose->setUp();
+        
             m_stack.pop();
+            m_stack.push([this]() { MenuChooseFunc(); });
             break;
             
         case 1:
-            m_stack.pop();
+            ViewManager::mode = SERVER;
+            
+            Server::launch(8002);
+            while (Server::threads.size() < THREAD_COUNT) {
+                Server::threads.push_back(std::thread(Server::loop));
+                Server::threads.back().detach();
+            }
+            
+            while (Server::connections < 2) {}
+            
+            m_chosen_knight = true;
+            m_chosen_wizard = true;
+            m_level = 0;
+            m_scene = new Scene(
+                                LVL_PATH + std::to_string(m_level + 1) + EXT_SET,
+                                LVL_PATH + std::to_string(m_level + 1) + EXT_MAP,
+                                m_chosen_knight, m_chosen_wizard
+                                );
+            
+            Server::m_pscene = m_scene;
+            m_stack.push([this]() { GameStart(); });
+            m_stack.push([this]() { EnteringLevel(); });
+            m_stack.push([this]() { ExitingLevel(); });
             break;
             
         case 2:
@@ -156,6 +190,8 @@ void ViewManager::MenuChooseFunc()
 			LVL_PATH + std::to_string(m_level + 1) + EXT_MAP,
 			m_chosen_knight, m_chosen_wizard
 		);
+            
+        Client::m_pscene = m_scene;
 
 		m_stack.pop();
 		m_stack.push([this]() { GameStart(); });
@@ -172,6 +208,8 @@ void ViewManager::MenuChooseFunc()
 			m_chosen_knight, m_chosen_wizard
 		);
 		
+        Client::m_pscene = m_scene;
+            
 		m_stack.pop();
 		m_stack.push([this]() { GameStart(); });
 		m_stack.push([this]() { EnteringLevel(); });
@@ -222,32 +260,59 @@ void ViewManager::GameStart()
 {
 	SDL_Event e;
 	bool quit = false;
+    Client::m_pscene = m_scene;
 
 	m_scene->prepare();
 
-	while (SDL_PollEvent(&e) != 0)
-	{
-		if (e.type == SDL_QUIT)
-		{
-			quit = true;
-		}
-		else
-		{
-			if (e.type == SDL_KEYDOWN && e.key.repeat == 0)
-			{
-				SDL_Keycode key = e.key.keysym.sym;
-				if (key == SDLK_ESCAPE)
-				{
-					m_menuPause->setUp();
-					m_stack.push([this]() { MenuPauseFunc(); });
-				}
-			}
-
-			m_scene->handleEvent(e);
-		}
-	}
+    if (mode != SERVER)
+    {
+        while (SDL_PollEvent(&e) != 0)
+        {
+            if (e.type == SDL_QUIT)
+            {
+                quit = true;
+            }
+            else
+            {
+                if (e.type == SDL_KEYDOWN && e.key.repeat == 0)
+                {
+                    SDL_Keycode key = e.key.keysym.sym;
+                    if (key == SDLK_ESCAPE)
+                    {
+                        m_menuPause->setUp();
+                        m_stack.push([this]() { MenuPauseFunc(); });
+                    }
+                }
+                
+                m_scene->handleEvent(e);
+                
+                if (mode == CLIENT) {
+                    SyncData data;
+                    
+                    data.type = SyncData::CtS;
+                    data.id = Client::id;
+                    data.player = m_scene->m_knight ? m_scene->m_knight->getPos() : m_scene->m_wizard->getPos();
+                    Client::sendToServer(&data, sizeof(data));
+                }
+            }
+        }
+    }
 
 	m_scene->update();
+    
+    if (ViewManager::mode == SERVER)
+    {
+        SyncData data;
+        data.type = SyncData::StC;
+        data.id = 0;
+        data.bots[0] = m_scene->m_monsters[0]->getPos();
+        data.bots[1] = m_scene->m_monsters[1]->getPos();
+            
+        for (int client: Server::clients) {
+            send(client, &data, sizeof(data), 0);
+        }
+    }
+
 
 	SDL_SetRenderDrawColor(LRenderer::getRenderer(), 0xFF, 0xFF, 0xFF, 0xFF);
 	SDL_RenderClear(LRenderer::getRenderer());

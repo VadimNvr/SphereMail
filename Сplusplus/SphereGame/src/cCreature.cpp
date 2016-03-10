@@ -237,3 +237,20 @@ bool Creature::comparator(const Creature* a, const Creature* b)
 {
 	return (a->getBox().y < b->getBox().y);
 }
+
+CreatureInfo::CreatureInfo(int x, int y)
+{
+    m_delta_x = x;
+    m_delta_y = y;
+}
+
+SDL_Rect Creature::getPos()
+{
+    return m_box;
+}
+
+
+void Creature::setPos(SDL_Rect &pos)
+{
+    m_box = pos;
+}

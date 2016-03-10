@@ -13,7 +13,7 @@ void Knight::handleEvent(const SDL_Event& e)
 {
 	if (!isAlive()) return;
 
-	if (e.type == SDL_KEYDOWN && e.key.repeat == 0)
+    if (e.type == SDL_KEYDOWN && e.key.repeat == 0)
 	{		
 		if (m_keep_action) return;
 

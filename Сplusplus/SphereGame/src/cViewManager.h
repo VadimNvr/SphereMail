@@ -7,13 +7,19 @@
 #include "cMenuPause.h"
 #include "cMenuMulti.h"
 
+#include "cServer.h"
+#include "cClient.h"
+
 #include <functional>
+
+enum Mode { SINGLE, CLIENT, SERVER };
 
 class ViewManager {
 private:
 	ViewManager();
 public:
 	static ViewManager* Instance();
+    static Mode mode;
 	void Loop();
 
 	~ViewManager();

@@ -34,7 +34,8 @@
 		DD62CEC71C88250F0003ABCA /* SDL2_image.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD62CEC61C88250F0003ABCA /* SDL2_image.framework */; };
 		DD62CEC91C883AAC0003ABCA /* SDL2_ttf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD62CEC81C883AAC0003ABCA /* SDL2_ttf.framework */; };
 		DD7EBC301C897A9F008016E9 /* cMenuMulti.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DD7EBC2E1C897A9F008016E9 /* cMenuMulti.cpp */; };
-		DD7EBC331C89A50A008016E9 /* cServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DD7EBC311C89A50A008016E9 /* cServer.cpp */; };
+		DD7EBC381C89D78E008016E9 /* cServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DD7EBC361C89D78E008016E9 /* cServer.cpp */; };
+		DD7EBC3B1C8AB4D4008016E9 /* cClient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DD7EBC391C8AB4D4008016E9 /* cClient.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -103,8 +104,10 @@
 		DD62CEC81C883AAC0003ABCA /* SDL2_ttf.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2_ttf.framework; path = ../../../../../../Library/Frameworks/SDL2_ttf.framework; sourceTree = "<group>"; };
 		DD7EBC2E1C897A9F008016E9 /* cMenuMulti.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = cMenuMulti.cpp; path = src/cMenuMulti.cpp; sourceTree = "<group>"; };
 		DD7EBC2F1C897A9F008016E9 /* cMenuMulti.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = cMenuMulti.h; path = src/cMenuMulti.h; sourceTree = "<group>"; };
-		DD7EBC311C89A50A008016E9 /* cServer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = cServer.cpp; path = src/cServer.cpp; sourceTree = "<group>"; };
-		DD7EBC321C89A50A008016E9 /* cServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = cServer.h; path = src/cServer.h; sourceTree = "<group>"; };
+		DD7EBC361C89D78E008016E9 /* cServer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = cServer.cpp; path = src/cServer.cpp; sourceTree = "<group>"; };
+		DD7EBC371C89D78E008016E9 /* cServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = cServer.h; path = src/cServer.h; sourceTree = "<group>"; };
+		DD7EBC391C8AB4D4008016E9 /* cClient.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = cClient.cpp; path = src/cClient.cpp; sourceTree = "<group>"; };
+		DD7EBC3A1C8AB4D4008016E9 /* cClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = cClient.h; path = src/cClient.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +128,8 @@
 		DD3521181C8960D2001C731D /* src */ = {
 			isa = PBXGroup;
 			children = (
+				DD7EBC361C89D78E008016E9 /* cServer.cpp */,
+				DD7EBC371C89D78E008016E9 /* cServer.h */,
 				DD3521191C8960E9001C731D /* cBullet.cpp */,
 				DD35211A1C8960E9001C731D /* cBullet.h */,
 				DD35211B1C8960E9001C731D /* cChobin.cpp */,
@@ -173,8 +178,8 @@
 				DD3521441C8960E9001C731D /* globals.h */,
 				DD3521451C8960E9001C731D /* main.cpp */,
 				DD3521461C8960E9001C731D /* Makefile */,
-				DD7EBC311C89A50A008016E9 /* cServer.cpp */,
-				DD7EBC321C89A50A008016E9 /* cServer.h */,
+				DD7EBC391C8AB4D4008016E9 /* cClient.cpp */,
+				DD7EBC3A1C8AB4D4008016E9 /* cClient.h */,
 			);
 			name = src;
 			sourceTree = "<group>";
@@ -257,11 +262,12 @@
 			files = (
 				DD3521591C8960E9001C731D /* cViewManager.cpp in Sources */,
 				DD3521491C8960E9001C731D /* cCreature.cpp in Sources */,
+				DD7EBC3B1C8AB4D4008016E9 /* cClient.cpp in Sources */,
 				DD3521481C8960E9001C731D /* cChobin.cpp in Sources */,
 				DD3521551C8960E9001C731D /* cState.cpp in Sources */,
 				DD3521521C8960E9001C731D /* cMissile.cpp in Sources */,
 				DD35214E1C8960E9001C731D /* cMenu.cpp in Sources */,
-				DD7EBC331C89A50A008016E9 /* cServer.cpp in Sources */,
+				DD7EBC381C89D78E008016E9 /* cServer.cpp in Sources */,
 				DD3521501C8960E9001C731D /* cMenuMain.cpp in Sources */,
 				DD3521531C8960E9001C731D /* cRObject.cpp in Sources */,
 				DD35215A1C8960E9001C731D /* cWizard.cpp in Sources */,
@@ -321,9 +327,12 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = "-I/usr/local/include";
+				OTHER_CPLUSPLUSFLAGS = "$(OTHER_CFLAGS)";
+				OTHER_LDFLAGS = "-L/usr/local/lib";
 				SDKROOT = macosx;
 			};
 			name = Debug;
@@ -358,9 +367,12 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				ONLY_ACTIVE_ARCH = NO;
+				OTHER_CFLAGS = "-I/usr/local/include";
+				OTHER_CPLUSPLUSFLAGS = "$(OTHER_CFLAGS)";
+				OTHER_LDFLAGS = "-L/usr/local/lib";
 				SDKROOT = macosx;
 			};
 			name = Release;
@@ -379,11 +391,16 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/External/lib",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				OTHER_CPLUSPLUSFLAGS = "$(OTHER_CFLAGS)";
+				OTHER_LDFLAGS = (
+					"-L/usr/local/lib",
+					"-lev",
+				);
 				OTHER_LIBTOOLFLAGS = "-lSDL_Image";
 				PRODUCT_NAME = Game_Server;
 				SDKROOT = macosx;
+				VALID_ARCHS = "i386 x86_64";
 			};
 			name = Debug;
 		};
@@ -401,11 +418,16 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/External/lib",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				OTHER_CPLUSPLUSFLAGS = "$(OTHER_CFLAGS)";
+				OTHER_LDFLAGS = (
+					"-L/usr/local/lib",
+					"-lev",
+				);
 				OTHER_LIBTOOLFLAGS = "-lSDL_Image";
 				PRODUCT_NAME = Game_Server;
 				SDKROOT = macosx;
+				VALID_ARCHS = "i386 x86_64";
 			};
 			name = Release;
 		};

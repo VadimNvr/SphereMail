@@ -16,6 +16,7 @@
 #include <algorithm>
 #include <fstream>
 
+
 class Scene {
 public:
 	Scene(const std::string& f_settings, const std::string& f_map, bool isBoy, bool isGirl);
@@ -41,7 +42,7 @@ private:
 	void deleteTiles();
 	void deleteBullets();
 	void deleteCreatures();
-private:
+public:
 	Level m_level;
 
 	SDL_Rect m_camera;
