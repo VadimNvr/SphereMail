@@ -321,8 +321,24 @@ void Scene::update()
 	{
 		m_wizard->move(m_level, obstacles, &m_camera);
 	}
-
-	obstacles.clear();
+    
+    for (auto p_elem = m_monsters.begin(); p_elem != m_monsters.end(); p_elem++)
+    {
+        Goblin* tmp1 = dynamic_cast<Goblin*>(*p_elem);
+        if (tmp1)
+        {
+            tmp1->botActions(m_camera, players, obstacles);
+        }
+        
+        Chobin* tmp2 = dynamic_cast<Chobin*>(*p_elem);
+        if (tmp2)
+        {
+            tmp2->botActions(m_camera, players, obstacles);
+        }
+        
+        (*p_elem)->move(m_level, obstacles);
+    }
+    obstacles.clear();
 	
 	/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 	 * * * * * * * * * * * * * * * * * * * * * BULLETS  MOVEMENT * * * * * * * * * * * * * * * * * * * * * *

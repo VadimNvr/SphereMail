@@ -29,9 +29,9 @@ Game::Game(GameType type, int charater)
             );
             
             
-            //m_stack.push([this]() { GameStart(); });
-            //m_stack.push([this]() { EnteringLevel(); });
-            //m_stack.push([this]() { ExitingLevel(); });
+            m_stack.push([this]() { GameStart(); });
+            m_stack.push([this]() { EnteringLevel(); });
+            m_stack.push([this]() { ExitingLevel(); });
             break;
             
         case MULTI:

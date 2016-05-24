@@ -6,8 +6,8 @@
 #include <string>
 
 // Screen dimension constants
-static const int SCREEN_WIDTH = 480;
-static const int SCREEN_HEIGHT = 272;
+static const int SCREEN_WIDTH = 800;
+static const int SCREEN_HEIGHT = 600;
 
 // used for naming buttons control
 static const int number_controls = 6;

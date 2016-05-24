@@ -93,7 +93,6 @@ void ViewManager::MenuMainFunc()
 		m_stack.push([this]() { MenuChooseFunc(); });
 		break;
 	case 1:
-            /*
 		m_chosen_knight = true;
 		m_chosen_wizard = true;
 		m_level = 0;
@@ -105,9 +104,9 @@ void ViewManager::MenuMainFunc()
 		m_stack.push([this]() { GameStart(); });
 		m_stack.push([this]() { EnteringLevel(); });
 		m_stack.push([this]() { ExitingLevel(); });
-             */
-        m_menuMulti->setUp();
-        m_stack.push([this]() { MenuMultiFunc(); });
+             
+        //m_menuMulti->setUp();
+        //m_stack.push([this]() { MenuMultiFunc(); });
 		break;
 	case 2:
 		exit();

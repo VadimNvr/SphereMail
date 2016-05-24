@@ -1,6 +1,6 @@
 dependencies: \
-  /Users/vadim/Desktop/Technosphere/Сplusplus/SphereGame/src/cTexture.cpp \
-  /Users/vadim/Desktop/Technosphere/Сplusplus/SphereGame/src/cTexture.h \
+  /Users/vadim/Desktop/Technosphere/Cplusplus/SphereGame/src/cTexture.cpp \
+  /Users/vadim/Desktop/Technosphere/Cplusplus/SphereGame/src/cTexture.h \
   /Library/Frameworks/SDL2.framework/Headers/SDL.h \
   /Library/Frameworks/SDL2.framework/Headers/SDL_main.h \
   /Library/Frameworks/SDL2.framework/Headers/SDL_stdinc.h \

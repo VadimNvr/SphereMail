@@ -33,7 +33,6 @@
 		DD62CEC51C87A4A70003ABCA /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD62CEC41C87A4A70003ABCA /* Cocoa.framework */; };
 		DD62CEC71C88250F0003ABCA /* SDL2_image.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD62CEC61C88250F0003ABCA /* SDL2_image.framework */; };
 		DD62CEC91C883AAC0003ABCA /* SDL2_ttf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD62CEC81C883AAC0003ABCA /* SDL2_ttf.framework */; };
-		DD767D8A1C95C4C7006C6D42 /* cGame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DD767D881C95C4C7006C6D42 /* cGame.cpp */; };
 		DD7EBC301C897A9F008016E9 /* cMenuMulti.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DD7EBC2E1C897A9F008016E9 /* cMenuMulti.cpp */; };
 		DD7EBC381C89D78E008016E9 /* cServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DD7EBC361C89D78E008016E9 /* cServer.cpp */; };
 		DD7EBC3B1C8AB4D4008016E9 /* cClient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DD7EBC391C8AB4D4008016E9 /* cClient.cpp */; };
@@ -103,8 +102,6 @@
 		DD62CEC41C87A4A70003ABCA /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		DD62CEC61C88250F0003ABCA /* SDL2_image.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2_image.framework; path = ../../../../../../Library/Frameworks/SDL2_image.framework; sourceTree = "<group>"; };
 		DD62CEC81C883AAC0003ABCA /* SDL2_ttf.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2_ttf.framework; path = ../../../../../../Library/Frameworks/SDL2_ttf.framework; sourceTree = "<group>"; };
-		DD767D881C95C4C7006C6D42 /* cGame.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = cGame.cpp; path = src/cGame.cpp; sourceTree = "<group>"; };
-		DD767D891C95C4C7006C6D42 /* cGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = cGame.h; path = src/cGame.h; sourceTree = "<group>"; };
 		DD7EBC2E1C897A9F008016E9 /* cMenuMulti.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = cMenuMulti.cpp; path = src/cMenuMulti.cpp; sourceTree = "<group>"; };
 		DD7EBC2F1C897A9F008016E9 /* cMenuMulti.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = cMenuMulti.h; path = src/cMenuMulti.h; sourceTree = "<group>"; };
 		DD7EBC361C89D78E008016E9 /* cServer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = cServer.cpp; path = src/cServer.cpp; sourceTree = "<group>"; };
@@ -173,8 +170,6 @@
 				DD35213E1C8960E9001C731D /* cTimer.h */,
 				DD35213F1C8960E9001C731D /* cVector.h */,
 				DD3521401C8960E9001C731D /* cViewManager.cpp */,
-				DD767D881C95C4C7006C6D42 /* cGame.cpp */,
-				DD767D891C95C4C7006C6D42 /* cGame.h */,
 				DD3521411C8960E9001C731D /* cViewManager.h */,
 				DD7EBC2E1C897A9F008016E9 /* cMenuMulti.cpp */,
 				DD7EBC2F1C897A9F008016E9 /* cMenuMulti.h */,
@@ -288,7 +283,6 @@
 				DD35214B1C8960E9001C731D /* cFrameCounter.cpp in Sources */,
 				DD35214A1C8960E9001C731D /* cCreatureTypes.cpp in Sources */,
 				DD35214F1C8960E9001C731D /* cMenuChoose.cpp in Sources */,
-				DD767D8A1C95C4C7006C6D42 /* cGame.cpp in Sources */,
 				DD3521471C8960E9001C731D /* cBullet.cpp in Sources */,
 				DD3521571C8960E9001C731D /* cTexture.cpp in Sources */,
 			);

@@ -1,8 +1,8 @@
 dependencies: \
-  /Users/vadim/Desktop/Technosphere/Сplusplus/SphereGame/src/cStatusBar.cpp \
-  /Users/vadim/Desktop/Technosphere/Сplusplus/SphereGame/src/cStatusBar.h \
-  /Users/vadim/Desktop/Technosphere/Сplusplus/SphereGame/src/cRObject.h \
-  /Users/vadim/Desktop/Technosphere/Сplusplus/SphereGame/src/cTexture.h \
+  /Users/vadim/Desktop/Technosphere/Cplusplus/SphereGame/src/cStatusBar.cpp \
+  /Users/vadim/Desktop/Technosphere/Cplusplus/SphereGame/src/cStatusBar.h \
+  /Users/vadim/Desktop/Technosphere/Cplusplus/SphereGame/src/cRObject.h \
+  /Users/vadim/Desktop/Technosphere/Cplusplus/SphereGame/src/cTexture.h \
   /Library/Frameworks/SDL2.framework/Headers/SDL.h \
   /Library/Frameworks/SDL2.framework/Headers/SDL_main.h \
   /Library/Frameworks/SDL2.framework/Headers/SDL_stdinc.h \
@@ -49,7 +49,7 @@ dependencies: \
   /Library/Frameworks/SDL2.framework/Headers/SDL_version.h \
   /Library/Frameworks/SDL2_image.framework/Headers/SDL_image.h \
   /Library/Frameworks/SDL2_ttf.framework/Headers/SDL_ttf.h \
-  /Users/vadim/Desktop/Technosphere/Сplusplus/SphereGame/src/cFrameCounter.h \
-  /Users/vadim/Desktop/Technosphere/Сplusplus/SphereGame/src/cState.h \
-  /Users/vadim/Desktop/Technosphere/Сplusplus/SphereGame/src/cVector.h \
-  /Users/vadim/Desktop/Technosphere/Сplusplus/SphereGame/src/globals.h
+  /Users/vadim/Desktop/Technosphere/Cplusplus/SphereGame/src/cFrameCounter.h \
+  /Users/vadim/Desktop/Technosphere/Cplusplus/SphereGame/src/cState.h \
+  /Users/vadim/Desktop/Technosphere/Cplusplus/SphereGame/src/cVector.h \
+  /Users/vadim/Desktop/Technosphere/Cplusplus/SphereGame/src/globals.h
